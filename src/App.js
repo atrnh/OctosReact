@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Student from './components/Student';
 
 class App extends Component {
   render() {
-    if (true) {
-      console.log('something else');
-    }
+    const myName = "Kari";
 
     return (
       <div className="App">
@@ -14,10 +13,11 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Welcome to React</h1>
         </header>
-        <p className="App-intro">
-          This is a regular change. Nothing cool to see here.
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+
+        <Student />
+
+        <p>{ myName }</p>
+        {/*This is a comment example*/}
       </div>
     );
   }
