@@ -1,6 +1,16 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class Student extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    email: PropTypes.string,
+    grade: PropTypes.string,
+    present: PropTypes.bool,
+    markPresentCallback: PropTypes.func.isRequired,
+    studentIndex: PropTypes.number.isRequired,
+  }
+
   onPresentButtonClicked = () => {
     console.log("Got a click");
 
