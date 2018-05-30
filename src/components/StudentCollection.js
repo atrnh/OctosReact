@@ -21,9 +21,29 @@ class StudentCollection extends Component {
     }
   }
 
+  // This will be used as a callback so we've got to make
+  // it an arrow function!
+  markStudentPresent = (index) => {
+    console.log(`Marking student ${index} as present`);
+    // TODO: mark that student as present
+
+    const updatedStudents = this.state.students;
+
+    updatedStudents[index].present = true;
+
+    this.setState({students: updatedStudents});
+  }
+
   render() {
     const studentComponents = this.state.students.map((student, index) => {
-      return <Student key={ index } name={ student.name } email={ student.email } />
+      return <Student key={ index }
+        name={ student.name }
+        email={ student.email }
+        present={ student.present }
+
+        markPresentCallback={this.markStudentPresent}
+        studentIndex={index}
+        />
     });
 
 

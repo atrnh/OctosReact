@@ -10,11 +10,13 @@ class App extends Component {
     const studentData = [
       {
         name: 'Ada',
-        email: 'ada@ada.co'
+        email: 'ada@ada.co',
+        present: false
       },
       {
         name: 'Grace',
-        email: 'grace@ada.co'
+        email: 'grace@ada.co',
+        present: false
       }
     ];
 
