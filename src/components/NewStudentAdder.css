@@ -1,0 +1,15 @@
+.valid {
+  background-color: #bfefbf;
+}
+
+.invalid {
+  background-color: pink;
+}
+
+input {
+  margin-right: 10px;
+}
+
+label::after {
+  content: " ";
+}

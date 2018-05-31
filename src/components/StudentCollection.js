@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
 import Student from './Student';
+import NewStudentAdder from './NewStudentAdder';
 
 // Idea: take as props a list of students
 // Each student is a plain JS object
@@ -34,22 +35,36 @@ class StudentCollection extends Component {
     this.setState({students: updatedStudents});
   }
 
+  addStudent = student => {
+    // The present property is required
+    student.present = false;
+
+    // Array.concat returns a new array, so everything is nice and
+    // funcitonal :D
+    const students = this.state.students.concat([ student ]);
+    // Take advantage of destructuring~ yay syntactic sugar!
+    this.setState({ students });
+  }
+
   render() {
     const studentComponents = this.state.students.map((student, index) => {
-      return <Student key={ index }
-        name={ student.name }
-        email={ student.email }
-        present={ student.present }
-
-        markPresentCallback={this.markStudentPresent}
-        studentIndex={index}
+      return (
+        <Student
+          key={index}
+          name={student.name}
+          email={student.email}
+          present={student.present}
+          markPresentCallback={this.markStudentPresent}
+          studentIndex={index}
         />
+      );
     });
 
 
     return (
       <div className="student-collection">
         <h1>Hello from student collection</h1>
+        <NewStudentAdder onSubmitCallback={this.addStudent} />
         {studentComponents}
       </div>
     );
