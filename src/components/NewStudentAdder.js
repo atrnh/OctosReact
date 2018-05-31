@@ -27,7 +27,14 @@ export default class NewStudentAdder extends Component {
   handleOnSubmit = (event, callback) => {
     event.preventDefault();
 
-    // Copy this.state
+    // Object.assign takes in two objects. It copies properties of
+    // the second object into the first object and returns the first
+    // object
+    //
+    // Object.assign(<object>, <object-to-copy>)
+    //
+    // Object.assign only works with Babel (luckily Babel comes with
+    // create-react-app)
     const newStudent = Object.assign({}, this.state);
 
     // TODO: Validate newStudent before calling the callback!
@@ -35,9 +42,6 @@ export default class NewStudentAdder extends Component {
     callback(newStudent);
     this.setState({ name: '', email: '' });
   }
-
-  // This can be static because we don't need to access this 
-  static isInputValid = (pattern, str) => str.match(pattern);
 
   render() {
     const props = this.props;

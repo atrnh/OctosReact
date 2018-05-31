@@ -32,16 +32,26 @@ class StudentCollection extends Component {
 
     updatedStudents[index].present = true;
 
-    this.setState({students: updatedStudents});
+    this.setState({ students: updatedStudents });
   }
 
+  // addStudent takes a student object and adds it to the array at
+  // this.state.students
   addStudent = student => {
+
     // The present property is required
     student.present = false;
 
-    // Array.concat returns a new array, so everything is nice and
-    // funcitonal :D
-    const students = this.state.students.concat([ student ]);
+    // Array.concat returns a new array
+    // Example:
+    //   const fruits = ['apple', 'berry', 'cherry']
+    //   moreFruits = fruits.concat(['durian'])
+    //   console.log(fruits)
+    //   -> ['apple', 'berry', 'cherry']
+    //   console.log(moreFruits)
+    //   -> ['apple', 'berry', 'cherry', 'durian']
+    const students = this.state.students.concat([student]);
+
     // Take advantage of destructuring~ yay syntactic sugar!
     this.setState({ students });
   }
@@ -59,7 +69,6 @@ class StudentCollection extends Component {
         />
       );
     });
-
 
     return (
       <div className="student-collection">

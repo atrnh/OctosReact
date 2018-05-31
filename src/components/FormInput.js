@@ -13,6 +13,8 @@ export default class FormInput extends Component {
   handleInputChange = (event, callback) => {
     event.preventDefault();
 
+
+    // callback can be any function that takes one argument
     callback(event.target);
   }
 

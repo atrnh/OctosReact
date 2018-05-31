@@ -26,10 +26,10 @@ class Student extends Component {
     return (
       <section>
         <ul>
-          <li>Name: { studentName } </li>
-          <li>Email: { studentEmail }</li>
-          <li>Grade: { this.props.grade }</li>
-          <li>Present: { this.props.present.toString() }</li>
+          <li>Name: {studentName} </li>
+          <li>Email: {studentEmail}</li>
+          <li>Grade: {this.props.grade}</li>
+          <li>Present: {this.props.present.toString()}</li>
           <li>
             <button
               onClick={this.onPresentButtonClicked}
