@@ -51,21 +51,14 @@ export default class NewStudentAdder extends Component {
           inputText={nameText}
           labelText="Name"
           onInputChange={this.updateWithInput}
-          inputClass={(
-            // Ternary expression
-            NewStudentAdder.isInputValid(/\w+/, nameText) ? "valid"
-            : "invalid"
-          )}
+          inputClass={nameText.match(/\w+/) ? "valid" : "invalid"}
         />
         <FormInput
           inputName="email"
           inputText={emailText}
           labelText="Email"
           onInputChange={this.updateWithInput}
-          inputClass={(
-            NewStudentAdder.isInputValid(/\S+@\S+\.\S+/, emailText) ? "valid"
-            : "invalid"
-          )}
+          inputClass={emailText.match(/\S+@\S+\.\S+/) ? "valid" : "invalid"}
         />
         <input type="submit" value="Add Student" />
       </form>
